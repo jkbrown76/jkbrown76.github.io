@@ -12,7 +12,7 @@
   </head>
 
   <body>
-
+  
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
@@ -22,6 +22,7 @@
           <h2 id="project_tagline"></h2>
 
         </header>
+        
     </div>
 
     <!-- MAIN CONTENT -->
@@ -30,7 +31,7 @@
         <h3>
 <a name="welcome-to-my-juggle-journal" class="anchor" href="#welcome-to-my-juggle-journal"><span class="octicon octicon-link"></span></a>Welcome to my juggle journal</h3>
 
-<p>My name is Jack. I'm 7 years old and I love to play soccer. My favorite soccer player is Lionel Messi. When I grow up I want to be a soccer player. </p>
+<p>My name is Jack. I'm 7 years old and I love to play soccer. My favorite player is Lionel Messi. When I grow up I want to be a professional soccer player.</p>
 
 <p>On April 1, 2014, I started a juggle journal to track how many juggles I can get in a row. Here is a <a href="https://vimeo.com/91025572">video</a> of me juggling during my first week.</p>
 
@@ -47,6 +48,56 @@
 </ol><p>I love to juggle a soccer ball. It helps with my touch and gives me lots of confidence playing soccer. I hope I can help other kids to start juggle journals and track their juggles too.</p>
       </section>
     </div>
+    
+  <div id="container" style="width: 800px; height: 400px; margin: 0 auto"></div>
+  
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    
+    <script> 
+  $(function () {
+        $('#container').highcharts({
+            title: {
+                text: 'Juggle Journal',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: ['4/1', '4/2', '4/3', '4/4', '4/5', '4/6',
+                    '4/7', '4/8', '4/9', '4/10']
+            },
+            yAxis: {
+                title: {
+                    text: 'Number of Juggles in a Row'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Juggles',
+                data: [50, 74, 208, 140, 105, 113, 253, 150, 125, 265]
+            
+            }]
+        });
+    });
+    
+    </script>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
