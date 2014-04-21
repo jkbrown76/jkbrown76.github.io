@@ -57,46 +57,74 @@
   <script src="http://code.highcharts.com/modules/exporting.js"></script>
     
     <script> 
-  $(function () {
+  
+    $(function () {
         $('#container').highcharts({
+            chart: {
+                zoomType: 'x',
+                spacingRight: 20
+            },
             title: {
-                text: 'Juggle Journal',
-                x: -20 //center
+                text: 'Soccer Juggle Journal'
             },
             subtitle: {
-                text: '',
-                x: -20
+                text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' :
+                    'Pinch the chart to zoom in'
             },
             xAxis: {
-                categories: ['4/1', '4/2', '4/3', '4/4', '4/5', '4/6',
-                    '4/7', '4/8', '4/9', '4/10', '4/11', '4/12', '4/13', '4/14', '4/15', '4/16', '4/17', '4/18', '4/19', '4/20']
+                type: 'datetime',
+                maxZoom: 14 * 24 * 3600000, // fourteen days
+                title: {
+                    text: null
+                }
             },
             yAxis: {
                 title: {
-                    text: 'Number of Juggles in a Row'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
+                    text: 'Number of Juggles'
+                }
             },
             tooltip: {
-                valueSuffix: ''
+                shared: true
             },
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
+                enabled: false
             },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    lineWidth: 1,
+                    marker: {
+                        enabled: false
+                    },
+                    shadow: false,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+    
             series: [{
+                type: 'area',
                 name: 'Juggles',
-                data: [50, 74, 208, 140, 105, 113, 253, 150, 125, 265, 118, 170, 245, 258, 223, 277, 222, 237, 254, 429]
-            
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: Date.UTC(2014, 03, 01),
+                data: [
+                    50, 74, 208, 140, 105, 113, 253, 150, 125, 265, 118, 170, 245, 258, 223, 277, 222, 237, 254, 429,
+                 
+                ]
             }]
         });
-    });
+    });       
     
     </script>
 
