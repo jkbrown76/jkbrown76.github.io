@@ -30,23 +30,15 @@
         <h3>
 <a name="welcome-to-my-juggle-journal" class="anchor" href="#welcome-to-my-juggle-journal"><span class="octicon octicon-link"></span></a>Welcome to my juggle journal</h3>
 
-<p>My name is Jack. I just turned eight years old and I love to play soccer. My favorite player is Lionel Messi. When I grow up I want to be a professional soccer player.</p>
+<p>My name is Jack. I am eight years old and I love to play soccer. My favorite player is Lionel Messi. When I grow up I want to be a professional soccer player.</p>
 
 <p>On April 1, 2014, I started a juggle journal to track how many juggles I can get in a row. Before I started my juggle journal my record was 203 juggles in a row. In the first three weeks I broke my record six times.</p> 
 
 <p><strong>My current record is 2,266 juggles in a row!</strong></p>
 
-<p>Here is a video of me juggling during my first week of April 2014.</p>
+<p>Shortly after starting my juggle journal, I partnered with Charity Ball - an organization that works towards getting new, quality soccer balls to kids in poverty-stricken communities around the world - and used my juggle journal to raise money. In about four months, I raised almost $1,000! You can check out my <a href="http://charityball.org/fundraisers/soccer-juggle-journal/">fundraiser page.</a></p>
 
-<iframe src="//player.vimeo.com/video/91025572?title=0&amp;byline=0&amp;portrait=0" width="712" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-<p>Here is a video of me juggling during the first week of June 2014.</p>
-
-<iframe src="//player.vimeo.com/video/97488759?title=0&amp;byline=0&amp;portrait=0" width="712" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-
-<p>Here is a video of me juggling during the first week of August 2014.</p>
-
-<iframe src="//player.vimeo.com/video/102672925?title=0&amp;byline=0&amp;portrait=0" width="712" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>  
+<p><strong>I stopped tracking my juggles at the beginning of August 2014 - however, I am going to start again as of January 1, 2015!</strong></p>
 
 <h3>
 <a name="how-the-juggle-journal-works" class="anchor" href="#how-the-juggle-journal-works"><span class="octicon octicon-link"></span></a>How the juggle journal works</h3>
@@ -55,19 +47,11 @@
 
 <p>I love to juggle a soccer ball. It helps with my touch and gives me lots of confidence playing soccer. I hope I can help other kids to start juggle journals and track their juggles too.</p>
 
-<h3>
-<a name="fundraiser-juggling-for-a-cause" class="anchor" href="#fundrasier-juggling-for-a-cause"><span class="octicon octicon-link"></span></a>Fundraiser - juggling for a cause</h3>
+<p>Here is a video of me juggling during my first week of April 2014.</p>
 
-<p>On April 21, 2014, I started working with Charity Ball to work towards getting new, quality soccer balls to kids in poverty-stricken communities around the world.</p> 
+<iframe src="//player.vimeo.com/video/91025572?title=0&amp;byline=0&amp;portrait=0" width="712" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-<p>A couple of examples of donations could be donating an amount based on my highest number of juggles in a row for a specific time period or a donation of $25, which provides a new soccer ball directly to a child.</p> 
-
-<p>I would love for you to check out my <a href="http://charityball.org/fundraisers/soccer-juggle-journal/">fundraiser page</a> and please consider donating towards my goal.</p>
-
-<h3>
-<a name="contact" class="anchor" href="#contact"><span class="octicon octicon-link"></span></a>Contact</h3>
-
-<p>If you have any questions, please email <a href="mailto:jameskbrown10@gmail.com">Jack's dad</a>.</p> 
+<p>If you have any questions, please email <a href="mailto:jkbrown76@msn.com">my dad</a>.</p> 
       
         
       </section>
@@ -78,6 +62,78 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    
+    <script> 
+  
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'x',
+                spacingRight: 20
+            },
+            title: {
+                text: 'Soccer Juggle Journal'
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' :
+                    'Pinch the chart to zoom in'
+            },
+            xAxis: {
+                type: 'datetime',
+                maxZoom: 14 * 24 * 3600000, // fourteen days
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Number of Juggles in a Row'
+                }
+            },
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    lineWidth: 1,
+                    marker: {
+                        enabled: false
+                    },
+                    shadow: false,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+    
+            series: [{
+                type: 'area',
+                name: 'Juggles',
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: Date.UTC(2014, 03, 01),
+                data: [
+                    50, 74, 208, 140, 105, 113, 253, 150, 125, 265, 118, 170, 245, 258, 223, 277, 222, 237, 254, 429, 444, 216, 225, 521, 294, 231, 983, 451, 663, 263, 483, 1314, 1350, 786, 566, 576, 566, 598, 306, 310, 1362, 621, 489, 482, 485, 513, 367, 603, 443, 421, 464, 854, 752, 1406, 660, 588, 683, 720, 300, 504, 1498, 825, 777, 858, 466, 1551, 568, 334, 344, 1554, 1337, 471, 517, 721, 584, 632, 724, 438, 435, 440, 860, 500, 500, 500, 500, 500, 500, 500, 500, 500, 431, 450, 478, 538, 577, 590, 600, 777, 500, 817, 1031, 2038, 714, 667, 724, 851, 724, 915, 856, 712, 518, 891, 1205, 967, 825, 591, 645, 726, 641, 512, 826, 1629, 956, 403, 621, 666, 2266, 655, 710, 625
+                 
+                ]
+            }]
+        });
+    });       
+    
+    </script>
     
     <script> 
   
